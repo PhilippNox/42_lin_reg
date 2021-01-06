@@ -1,0 +1,11 @@
+Slides:
+	https://www.cis.upenn.edu/~cis519/fall2014/lectures/04_LinearRegression.pdf
+
+
+Code:
+	csv:
+		https://docs.python.org/3/library/csv.html#csv.reader
+
+
+Linear Regression :: Normalization (Vs) Standardization:
+	https://stackoverflow.com/a/54573558
