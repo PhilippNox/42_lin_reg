@@ -100,23 +100,6 @@ def gradient(thetas, depend_on, target):
 	return grad
 
 
-def apply_theta(thetas, depend_on):
-	hyp = []
-	for idx in range(len(depend_on[0])):
-		cur_vec_x = [row[idx] for row in depend_on]
-		hyp.append(sum([t_i * x_i for (t_i, x_i) in zip(thetas, cur_vec_x)]))
-	return hyp
-
-
-def predict(vector, std, theta):
-	vector = standardization_apply(vector, std)
-	vector = [1.0, *vector]
-	out = 0
-	for idx in range(len(theta)):
-		out += vector[idx] * theta[idx]
-	return out
-
-
 def gradient_descent(thetas, depend_on, target, learn_rate):
 	grad = gradient(thetas, depend_on, target)
 	for idx in range(len(thetas)):
@@ -143,3 +126,20 @@ def regression(target, depend_on, limit_iter=0, learn_rate=0.5):
 		if len(window) == window.maxlen \
 		   and max([abs(window[-1] - elem) for elem in window]) < ERR_EPSILON:
 			break
+
+
+def apply_theta(thetas, depend_on):
+	hyp = []
+	for idx in range(len(depend_on[0])):
+		cur_vec_x = [row[idx] for row in depend_on]
+		hyp.append(sum([t_i * x_i for (t_i, x_i) in zip(thetas, cur_vec_x)]))
+	return hyp
+
+
+def predict(vector, std, theta):
+	vector = standardization_apply(vector, std)
+	vector = [1.0, *vector]
+	out = 0
+	for idx in range(len(theta)):
+		out += vector[idx] * theta[idx]
+	return out

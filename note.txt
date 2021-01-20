@@ -9,3 +9,7 @@ Code:
 
 Linear Regression :: Normalization (Vs) Standardization:
 	https://stackoverflow.com/a/54573558
+
+
+Check:
+	# [print(elem) for elem in zip(depend_on[0], ml.apply_theta(theta, depend_std))]

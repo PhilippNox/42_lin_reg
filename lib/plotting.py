@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import ml
+from lib import ml
 
 
 def show_graphs(axs_x, theta, depend_std, result, loss_mem):

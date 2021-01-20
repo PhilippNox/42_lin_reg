@@ -75,16 +75,20 @@ class TestAsHelp(argparse.Action):
 def arg_parser():
 	parser = argparse.ArgumentParser(
 		formatter_class=argparse.RawDescriptionHelpFormatter,
-		prog='lin_reg_train',
+		prog='train_lin_reg',
 		epilog=help_txt
 	)
 	parser.add_argument('path_to_file', type=str)
 
 	parser.add_argument('-t', '--test', nargs=0, action=TestAsHelp,
 						help='create two .csv examples files')
-	parser.add_argument('-s', '--show', action='store_true')
-	parser.add_argument('-i', '--iter', action='store_true')
-	parser.add_argument('-r', '--rate', type=float, default=0.5)
-	parser.add_argument('-l', '--limi', type=int, default=0)
+	parser.add_argument('-s', '--show', action='store_true',
+						help='Mode: show')
+	parser.add_argument('-p', '--plot', action='store_true',
+						help='Mode: plot')
+	parser.add_argument('-r', '--rate', type=float, default=0.5,
+						help='Set learn_rate (default=0.5)')
+	parser.add_argument('-i', '--iter', type=int, default=0,
+						help='Set limit_iter (default=0)')
 
 	return parser.parse_args()
